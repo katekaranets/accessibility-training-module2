@@ -1,3 +1,12 @@
+$( document ).ready(function() {
+  $(".skip").click(function(event){
+      var skipTo="#"+this.href.split('#')[1];
+      $(skipTo).attr('tabindex', -1).on('blur focusout', function () {
+          $(this).removeAttr('tabindex');
+      }).focus(); 
+  });
+});
+
 (function() {
   var burger = document.querySelector(".burger");
   var menu = document.querySelector("#" + burger.dataset.target);
