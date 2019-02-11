@@ -76,10 +76,11 @@
           <div class="box">
             <form class="field is-grouped" aria-label="subscription">
               <p class="control is-expanded">
-                <input class="input">
+                <label for="notify-input" class="notify-label">email</label>
+                <input id="notify-input" type="text" class="input" placeholder="email@example.com" name="email">
               </p>
               <p class="control">
-                <button class="button is-info">Notify Me</button>
+                <button class="button is-info" aria-label="Notify">Notify Me</button>
               </p>
             </form>
           </div>
@@ -1032,16 +1033,16 @@
       
             <form class="column is-half is-offset-one-quarter box" aria-label="Contact us">
               <div class="field">
-                <label class="label">Name</label>
+                <label class="label" for="name-input">Name</label>
                 <div class="control">
-                  <input class="input" type="text" placeholder="Text input">
+                  <input id="name-input" class="input" type="text" placeholder="John Doe" name="name">
                 </div>
               </div>
       
               <div class="field">
-                <label class="label">Username</label>
+                <label class="label" for="username-input">Username</label>
                 <div class="control has-icons-left has-icons-right">
-                  <input class="input is-success" type="text">
+                  <input id="username-input" class="input is-success" type="text" name="username" placeholder="johndoe">
                   <span class="icon is-small is-left">
                     <i class="fas fa-user"></i>
                   </span>
@@ -1053,9 +1054,9 @@
               </div>
       
               <div class="field">
-                <label class="label">Email</label>
+                <label class="label" for="email-input">Email</label>
                 <div class="control has-icons-left has-icons-right">
-                  <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
+                  <input id="email-input" class="input is-danger" aria-invalid="true" type="email" placeholder="johnDoe@example.com" name="email" value="hello@email.com">
                   <span class="icon is-small is-left">
                     <i class="fas fa-envelope"></i>
                   </span>
@@ -1067,41 +1068,41 @@
               </div>
       
               <div class="field">
-                <label class="label">Subject</label>
+                <label class="label" for="subject-select"> Subject</label>
                 <div class="control">
                   <div class="select">
-                    <select>
-                      <option>Select dropdown</option>
-                      <option>With options</option>
+                    <select id="subject-select" aria-required="true">
+                      <option value="first">first subject</option>
+                      <option value="second">second subject</option>
                     </select>
                   </div>
                 </div>
               </div>
       
               <div class="field">
-                <label class="label">Message</label>
+                <label class="label" for="message-textarea">Message</label>
                 <div class="control">
-                  <textarea class="textarea" placeholder="Textarea"></textarea>
+                  <textarea id="message-textarea" class="textarea" placeholder="some text" name="message"></textarea>
                 </div>
               </div>
       
               <div class="field">
                 <div class="control">
-                  <label class="checkbox">
-                    <input type="checkbox">
+                  <label class="checkbox" for="agreement-checkbox">
+                    <input type="checkbox" id="agreement-checkbox" aria-checked="false">
                     I agree to the <a href="#">terms and conditions</a>
                   </label>
                 </div>
               </div>
       
               <div class="field">
-                <div class="control">
-                  <label class="radio">
-                    <input type="radio" name="question">
+                <div class="control" role="radiogroup" aria-labelledby="gdesc1">
+                  <label class="radio" for="radio-yes">
+                    <input type="radio" role="radio" id="radio-yes" name="question" aria-checked="false">
                     Yes
                   </label>
-                  <label class="radio">
-                    <input type="radio" name="question">
+                  <label class="radio" role="radio" for="radio-no">
+                    <input type="radio" id="radio-no" name="question" aria-checked="false">
                     No
                   </label>
                 </div>
@@ -1109,10 +1110,10 @@
       
               <div class="field is-grouped">
                 <div class="control">
-                  <button class="button is-link">Submit</button>
+                  <button class="button is-link" aria-label="submit">Submit</button>
                 </div>
                 <div class="control">
-                  <button class="button is-text">Cancel</button>
+                  <button class="button is-text" aria-label="cancel">Cancel</button>
                 </div>
               </div>
             </form>
