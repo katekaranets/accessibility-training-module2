@@ -178,3 +178,24 @@ a.skip:hover {
 .iframe {
   border: 0;
 }
+
+
+.button.is-info.is-hovered, .button.is-info:hover {
+  background-color: #2030ee
+}
+
+.is-info {
+  background-color: #205fee !important;
+}
+
+.is-primary {
+  background-color: #0b6877 !important;
+}
+
+.is-danger {
+  background-color: #bd1b3c !important;
+}
+
+.is-active {
+  
+}
