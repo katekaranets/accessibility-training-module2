@@ -323,7 +323,7 @@
           </div>
           <div class="tabs is-boxed is-centered main-menu" id="nav">
             <ul role="tablist" aria-label="list of topics">
-              <li role="tab"  aria-controls="pane-1" tabindex=-1 aria-selected="false" data-target="pane-1" id="1">
+              <li role="tab"  aria-controls="pane-1" tabindex="-1" aria-selected="false" data-target="pane-1" id="1">
                 <a href="#">
                   <span class="icon is-small"><i class="fa fa-image"></i></span>
                   <span>Pictures</span>
@@ -335,13 +335,13 @@
                   <span>Article</span>
                 </a>
               </li>
-              <li role="tab" aria-controls=pane-3" tabindex=-1 aria-selected="false" data-target="pane-3" id="3">
+              <li role="tab" aria-controls="pane-3" tabindex="-1" aria-selected="false" data-target="pane-3" id="3">
                 <a href="#">
                   <span class="icon is-small"><i class="fab fa-superpowers"></i></span>
                   <span>Team</span>
                 </a>
               </li>
-              <li role="tab" aria-controls="pane-4" tabindex=-1 aria-selected="false" data-target="pane-4" id="4">
+              <li role="tab" aria-controls="pane-4" tabindex="-1" aria-selected="false" data-target="pane-4" id="4">
                 <a href="#">
                   <span class="icon is-small"><i class="fa fa-film"></i></span>
                   <span>Video</span>
@@ -1089,7 +1089,7 @@
               <fieldset class="field">
                 <div class="control">
                   <label class="checkbox" for="agreement-checkbox">
-                    <input type="checkbox" id="agreement-checkbox" aria-checked="false">
+                    <input type="checkbox" role="checkbox" name="terms and conditions" id="agreement-checkbox" aria-checked="false">
                     I agree to the <a href="#">terms and conditions</a>
                   </label>
                 </div>
@@ -1098,11 +1098,11 @@
               <fieldset class="field">
                 <div class="control" role="radiogroup">
                   <label class="radio" for="radio-yes">
-                    <input type="radio" role="radio" id="radio-yes" name="question" aria-checked="false">
+                    <input type="radio" role="radio" id="radio-yes" name="question" aria-selected="false">
                     Yes
                   </label>
                   <label class="radio" role="radio" for="radio-no">
-                    <input type="radio" id="radio-no" name="question" aria-checked="false">
+                    <input type="radio" id="radio-no" name="question" aria-selected="false">
                     No
                   </label>
                 </div>
