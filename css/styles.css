@@ -201,6 +201,10 @@ a.skip:hover {
   color: #bd1b3c !important;
 }
 
+.is-white {
+  color: white !important;
+}
+
 a {
   color: #1823ab !important;
   text-decoration: underline;
