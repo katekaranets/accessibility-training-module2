@@ -235,3 +235,7 @@ a {
 .subtitle {
   color: #3e3e3e !important;
 }
+
+.has-text-white.subtitle  {
+  color: #fff!important;
+}
