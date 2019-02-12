@@ -197,8 +197,13 @@ a.skip:hover {
   background-color: #0b6877 !important;
 }
 
-.is-danger {
+.help.is-danger {
   color: #bd1b3c !important;
+}
+
+.tag:not(body).is-danger {
+  background-color: #bd1b3c !important;
+  color: #fff !important;
 }
 
 .is-white {
@@ -221,6 +226,10 @@ a {
 
 .button.is-link,.hero.is-info .tabs.is-boxed a, .hero.is-info .tabs.is-toggle a {
   color: #fff !important;
+}
+
+.hero.is-info .subtitle {
+  color: rgba(255,255,255,.9) !important;
 }
 
 .subtitle {
