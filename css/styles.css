@@ -190,6 +190,7 @@ a.skip:hover {
 
 .is-success {
   color: #08712d !important;
+  color: #fff !important;
 }
 
 .is-primary {
@@ -197,12 +198,14 @@ a.skip:hover {
 }
 
 .is-danger {
-  background-color: #bd1b3c !important;
+  color: #bd1b3c !important;
 }
 
 a {
  color: #1823ab !important;
 }
+
+
 
 .has-text-grey-light {
   color: #676767 !important;
@@ -210,4 +213,12 @@ a {
 
 .hero.is-info .tabs.is-boxed li.is-active a, .hero.is-info .tabs.is-boxed li.is-active a:hover, .hero.is-info .tabs.is-toggle li.is-active a, .hero.is-info .tabs.is-toggle li.is-active a:hover {
   color: #1872ad !important;
+}
+
+.button.is-link,.hero.is-info .tabs.is-boxed a, .hero.is-info .tabs.is-toggle a {
+  color: #fff !important;
+}
+
+.subtitle {
+  color: #3e3e3e !important;
 }
