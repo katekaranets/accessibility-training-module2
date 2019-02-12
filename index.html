@@ -76,10 +76,11 @@
           <div class="box">
             <form class="field is-grouped" aria-label="subscription">
               <p class="control is-expanded">
-                <input class="input">
+                <label for="notify-input" class="notify-label">email</label>
+                <input id="notify-input" type="text" class="input" placeholder="email@example.com" name="email">
               </p>
               <p class="control">
-                <button class="button is-info">Notify Me</button>
+                <button class="button is-info" aria-label="Notify">Notify Me</button>
               </p>
             </form>
           </div>
@@ -95,7 +96,7 @@
   </header>
 
   <main id="maincontent">
-      <div class="section" id="about">
+      <section class="section" id="about" aria-label="about us">
           <div class="section-heading has-text-centered">
             <h2 class="title is-2">About Us</h2>
             <div class="subtitle is-5">We of all trades, master of "some"</div>
@@ -223,7 +224,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </section>
       
         <div class="has-background-danger">
           <div class="info-tiles container">
@@ -321,26 +322,26 @@
             </div>
           </div>
           <div class="tabs is-boxed is-centered main-menu" id="nav">
-            <ul>
-              <li data-target="pane-1" id="1">
+            <ul role="tablist" aria-label="list of topics">
+              <li role="tab"  aria-controls="picture-tab" tabindex=-1 aria-selected="false" data-target="pane-1" id="1">
                 <a href="#">
                   <span class="icon is-small"><i class="fa fa-image"></i></span>
                   <span>Pictures</span>
                 </a>
               </li>
-              <li data-target="pane-2" id="2" class="is-active">
+              <li role="tab" aria-controls="article-tab" aria-selected="true" data-target="pane-2" id="2" class="is-active">
                 <a href="#">
                   <span class="icon is-small"><i class="fab fa-empire"></i></span>
                   <span>Article</span>
                 </a>
               </li>
-              <li data-target="pane-3" id="3">
+              <li role="tab" aria-controls="team-tab" tabindex=-1 aria-selected="false" data-target="pane-3" id="3">
                 <a href="#">
                   <span class="icon is-small"><i class="fab fa-superpowers"></i></span>
                   <span>Team</span>
                 </a>
               </li>
-              <li data-target="pane-4" id="4">
+              <li role="tab" aria-controls="video-tab" tabindex=-1 aria-selected="false" data-target="pane-4" id="4">
                 <a href="#">
                   <span class="icon is-small"><i class="fa fa-film"></i></span>
                   <span>Video</span>
@@ -351,7 +352,7 @@
         </div>
       
         <div class="tab-content container">
-          <div class="tab-pane" id="pane-1" class="level">
+          <div role="tabpanel" tabindex=0 aria-labelledby="pictures" class="tab-pane" id="pane-1" class="level">
             <div class="container">
               <div class="columns features">
                 <div class="column is-4">
@@ -407,7 +408,7 @@
             </div>
           </div>
       
-          <div class="tab-pane" id="pane-3">
+          <div role="tabpanel" tabindex=0 aria-labelledby="team" class="tab-pane" id="pane-3">
             <div class="columns medias">
               <div class="column">
                 <div class="media">
@@ -468,7 +469,7 @@
             </div>
           </div>
       
-          <div class="tab-pane" id="pane-4">
+          <div role="tabpanel" tabindex=0 aria-labelledby="video" class="tab-pane" id="pane-4">
             <div class="columns is-centered">
               <div class="column is-three-quarters">
                 <div class="title has-text-centered">Inspired video</div>
@@ -479,7 +480,7 @@
             </div>
           </div>
       
-          <div class="tab-pane is-active" id="pane-2">
+          <div role="tabpanel" tabindex=0 aria-labelledby="article" class="tab-pane is-active" id="pane-2">
             <div class="content">
               <h1 class="is-1 title">Hello World</h1>
               <p>Lorem ipsum<sup><a href="#">[1]</a></sup> dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque. Sub<sub>script</sub> works as well!</p>
@@ -572,7 +573,7 @@
           </div>
         </div>
       
-        <div class="section has-background-grey-lighter">
+        <section class="section has-background-grey-lighter">
           <div class="container has-text-centered">
               <div class="section-heading has-text-centered">
                 <h2 class="title is-2">Tours</h2>
@@ -645,9 +646,9 @@
               </div>
             </div>
           </div>
-        </div>
+        </section>
       
-        <div class="section">
+        <section class="section" aria-label="services">
           <div class="section-heading has-text-centered">
             <h2 class="title is-2">Services</h2>
             <div class="subtitle is-5">What can I do for you?</div>
@@ -693,9 +694,9 @@
               </div>
             </div>
           </div>
-        </div>
+        </section>
       
-        <div class="section has-background-grey-lighter">
+        <section class="section has-background-grey-lighter" aria-label="portfolio">
           <div class="container">
             <div class="section-heading has-text-centered">
               <h2 class="title is-2">Portfolio</h2>
@@ -860,9 +861,9 @@
             </div>
           </div>
           </div>
-        </div>
+        </section>
       
-        <div class="section">
+        <section class="section" aria-label="forum">
           <div class="container">
             <div class="section-heading has-text-centered">
               <h2 class="title is-2">Forum</h2>
@@ -1021,9 +1022,9 @@
               </div>
             </div>
           </div>
-        </div>
+        </section>
       
-        <div class="section has-background-light">
+        <section class="section has-background-light" aria-label="contuct us">
           <div class="container">
             <div class="section-heading has-text-centered">
               <h2 class="title is-2">Contact us</h2>
@@ -1032,16 +1033,16 @@
       
             <form class="column is-half is-offset-one-quarter box" aria-label="Contact us">
               <div class="field">
-                <label class="label">Name</label>
+                <label class="label" for="name-input">Name</label>
                 <div class="control">
-                  <input class="input" type="text" placeholder="Text input">
+                  <input id="name-input" class="input" type="text" placeholder="John Doe" name="name">
                 </div>
               </div>
       
               <div class="field">
-                <label class="label">Username</label>
+                <label class="label" for="username-input">Username</label>
                 <div class="control has-icons-left has-icons-right">
-                  <input class="input is-success" type="text">
+                  <input id="username-input" class="input is-success" type="text" name="username" placeholder="johndoe">
                   <span class="icon is-small is-left">
                     <i class="fas fa-user"></i>
                   </span>
@@ -1053,9 +1054,9 @@
               </div>
       
               <div class="field">
-                <label class="label">Email</label>
+                <label class="label" for="email-input">Email</label>
                 <div class="control has-icons-left has-icons-right">
-                  <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
+                  <input id="email-input" class="input is-danger" aria-invalid="true" type="email" placeholder="johnDoe@example.com" name="email" value="hello@email.com">
                   <span class="icon is-small is-left">
                     <i class="fas fa-envelope"></i>
                   </span>
@@ -1067,41 +1068,41 @@
               </div>
       
               <div class="field">
-                <label class="label">Subject</label>
+                <label class="label" for="subject-select"> Subject</label>
                 <div class="control">
                   <div class="select">
-                    <select>
-                      <option>Select dropdown</option>
-                      <option>With options</option>
+                    <select id="subject-select" aria-required="true">
+                      <option value="first">first subject</option>
+                      <option value="second">second subject</option>
                     </select>
                   </div>
                 </div>
               </div>
       
               <div class="field">
-                <label class="label">Message</label>
+                <label class="label" for="message-textarea">Message</label>
                 <div class="control">
-                  <textarea class="textarea" placeholder="Textarea"></textarea>
+                  <textarea id="message-textarea" class="textarea" placeholder="some text" name="message"></textarea>
                 </div>
               </div>
       
               <div class="field">
                 <div class="control">
-                  <label class="checkbox">
-                    <input type="checkbox">
+                  <label class="checkbox" for="agreement-checkbox">
+                    <input type="checkbox" id="agreement-checkbox" aria-checked="false">
                     I agree to the <a href="#">terms and conditions</a>
                   </label>
                 </div>
               </div>
       
               <div class="field">
-                <div class="control">
-                  <label class="radio">
-                    <input type="radio" name="question">
+                <div class="control" role="radiogroup" aria-labelledby="gdesc1">
+                  <label class="radio" for="radio-yes">
+                    <input type="radio" role="radio" id="radio-yes" name="question" aria-checked="false">
                     Yes
                   </label>
-                  <label class="radio">
-                    <input type="radio" name="question">
+                  <label class="radio" role="radio" for="radio-no">
+                    <input type="radio" id="radio-no" name="question" aria-checked="false">
                     No
                   </label>
                 </div>
@@ -1109,17 +1110,17 @@
       
               <div class="field is-grouped">
                 <div class="control">
-                  <button class="button is-link">Submit</button>
+                  <button class="button is-link" aria-label="submit">Submit</button>
                 </div>
                 <div class="control">
-                  <button class="button is-text">Cancel</button>
+                  <button class="button is-text" aria-label="cancel">Cancel</button>
                 </div>
               </div>
             </form>
           </div>
-        </div>
+        </section>
       
-        <div class="section">
+        <section class="section" aria-label="">
           <div class="container">
             <div class="columns is-multiline">
               <div class="column is-one-third">
@@ -1226,7 +1227,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </section>
   </main>
  
 
@@ -1281,7 +1282,7 @@
     </div>
   </footer>
 
-  <div id="modal-card" class="modal modal-fx-3dSlit">
+  <div id="modal-card" role="dialog" aria-modal="true" aria-label="modal" class="modal modal-fx-3dSlit">
     <div class="modal-background"></div>
     <div class="modal-content is-tiny">
       <div class="card">
