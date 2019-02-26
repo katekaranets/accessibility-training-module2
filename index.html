@@ -322,32 +322,24 @@
             </div>
           </div>
           <div class="tabs is-boxed is-centered main-menu" id="nav">
-            <ul role="tablist" aria-label="list of topics">
-              <li role="tab"  aria-controls="pane-1" tabindex="-1" aria-selected="false" data-target="pane-1" id="1">
-                <a href="#">
+            <div class="tablist" role="tablist" aria-label="list of topics">
+              <button class="tablistButton"  role="tab"  aria-controls="pane-1" tabindex="-1" aria-selected="false" data-target="pane-1" id="1">
                   <span class="icon is-small"><i  aria-hidden="true" class="fa fa-image"></i></span>
                   <span>Pictures</span>
-                </a>
-              </li>
-              <li role="tab" aria-controls="pane-2" aria-selected="true" data-target="pane-2" id="2" class="is-active">
-                <a href="#">
+              </button>
+              <button class="tablistButton is-active" aria-controls="pane-2" role="tab" aria-controls="pane-2" aria-selected="true" data-target="pane-2" id="2">
                   <span class="icon is-small"><i  aria-hidden="true" class="fab fa-empire"></i></span>
                   <span>Article</span>
-                </a>
               </li>
-              <li role="tab" aria-controls="pane-3" tabindex="-1" aria-selected="false" data-target="pane-3" id="3">
-                <a href="#">
+              <button class="tablistButton" role="tab" aria-controls="pane-3" tabindex="-1" aria-selected="false" data-target="pane-3" id="3">
                   <span class="icon is-small"><i  aria-hidden="true" class="fab fa-superpowers"></i></span>
                   <span>Team</span>
-                </a>
               </li>
-              <li role="tab" aria-controls="pane-4" tabindex="-1" aria-selected="false" data-target="pane-4" id="4">
-                <a href="#">
+              <button class="tablistButton" role="tab" aria-controls="pane-4" tabindex="-1" aria-selected="false" data-target="pane-4" id="4">
                   <span class="icon is-small"><i  aria-hidden="true" class="fa fa-film"></i></span>
                   <span>Video</span>
-                </a>
               </li>
-            </ul>
+            </div>
           </div>
         </div>
       
@@ -1337,6 +1329,10 @@
   </div>
 
   <script src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
   <script async src="js/custom.js"></script>
 </body>
 </html>

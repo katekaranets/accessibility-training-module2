@@ -220,7 +220,8 @@ a {
   color: #676767 !important;
 }
 
-.hero.is-info .tabs.is-boxed li.is-active a, .hero.is-info .tabs.is-boxed li.is-active a:hover, .hero.is-info .tabs.is-toggle li.is-active a, .hero.is-info .tabs.is-toggle li.is-active a:hover {
+.hero.is-info .tabs.is-boxed li.is-active a, .hero.is-info .tabs.is-boxed li.is-active a:hover, .hero.is-info .tabs.is-toggle li.is-active a, .hero.is-info .tabs.is-toggle li.is-active a:hover,
+.hero.is-info .tabs.is-boxed button.is-active , .hero.is-info .tabs.is-boxed button.is-active:hover, .hero.is-info .tabs.is-toggle button.is-active, .hero.is-info .tabs.is-toggle button.is-active:hover {
   color: #1872ad !important;
 }
 
@@ -238,4 +239,50 @@ a {
 
 .has-text-white.subtitle  {
   color: #fff!important;
+}
+
+.hero.is-info .tabs.is-boxed button.is-active, .hero.is-info .tabs.is-boxed button.is-active:hover, .hero.is-info .tabs.is-toggle button.is-active, .hero.is-info .tabs.is-toggle button.is-active:hover {
+  background-color: #fff;
+  border-color: #fff;
+  color: #209cee;
+}
+
+.tabs.is-boxed button {
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+}
+
+.tabs button {
+  align-items: center;
+  border-bottom-color: #dbdbdb;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  color: #4a4a4a;
+  display: flex;
+  justify-content: center;
+  margin-bottom: -1px;
+  padding: .5em 1em;
+  vertical-align: top;
+}
+
+.button.is-link, .hero.is-info .tabs.is-boxed button, .hero.is-info .tabs.is-toggle button {
+  color: #fff !important;
+}
+
+.tablistButton {
+  background: transparent;
+  cursor: pointer;
+}
+
+.tablist li:active,
+.tablist li:focus {
+  outline: 2px solid red;
+}
+
+.main-menu.is-centered {
+  margin: 0 auto;
+}
+
+.tablist {
+  display: flex;
 }
