@@ -259,5 +259,129 @@ function toggleTab(selectedNav, targetId) {
   };
 }());
 
+(function(){
+  var isValid = false;
+  var persons = [];
+  var person = {};
+
+  document.getElementById('submit').addEventListener('keyup', function(e){
+    if(e.keyCode === 32 || e.keyCode === 13){
+      document.getElementById('submit').click();
+    }
+  });
+
+  document.getElementById('submit').addEventListener('click', function(e){
+    e.preventDefault();
+    validate();
+    if(isValid) {
+      person.username = document.getElementById('username-input').value;
+      person.firstname = document.getElementById('firstname-input').value;
+      person.lastname = document.getElementById('lastname-input').value;
+      person.phonenumber = document.getElementById('phone-input').value;
+      person.address = document.getElementById('address-input').value;
+      person.zip = document.getElementById('zip-input').value;
+      person.email = document.getElementById('email-input').value;
+      persons.push(person);
+      window.localStorage.setItem('users', JSON.stringify(persons));
+      alert('Successfuly added');
+      clearInputs();
+    } else {
+      var errors = document.querySelectorAll('.control input+p');
+      for(var i=0; i<errors.length; i++){
+        if(errors[i].innerHTML) {
+          errors[i].previousElementSibling.focus();
+          break;
+        }
+      }
+    }
+  });
+
+  function validate() {
+    var users = JSON.parse(window.localStorage.getItem('users'));
+
+    if(validateUsername(users) && phoneValidation() && validateEmail() ){
+      isValid = true;
+    }
+  }
+
+  function phoneValidation(){
+    var phone = document.getElementById('phone-input').value;
+    if(phone && !isNaN(phone)){
+      document.querySelector('#phone-input+p').innerHTML = '';
+      document.querySelector('#phone-input').classList.remove('is-danger');
+      document.querySelector('#phone-input').classList.add('is-success');
+      return true;
+    }
+    if (!phone){
+      document.querySelector('#phone-input+p').innerHTML = 'Please provide phone number.';
+    } else {
+      document.querySelector('#phone-input+p').innerHTML = 'Phone number is incorrect.';
+    }
+    document.querySelector('#phone-input').classList.add('is-danger');
+    document.querySelector('#phone-input').classList.remove('is-success');
+    return false;
+  }
+
+  function validateEmail() {
+    var email = document.getElementById('email-input').value;
+    if(email && checkEmail(email)){
+      document.querySelector('#email-input+p').innerHTML = '';
+      document.querySelector('#email-input').classList.remove('is-danger');
+      document.querySelector('#email-input').classList.add('is-success');
+      return true
+    }
+    if (!email){
+      document.querySelector('#email-input+p').innerHTML = 'Please provide email.';
+    } else {
+      document.querySelector('#email-input+p').innerHTML = 'Email is incorrect.';
+    }
+    document.querySelector('#email-input').classList.add('is-danger');
+    document.querySelector('#email-input').classList.remove('is-success');
+    return false;
+  }
+
+  function checkEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+  function validateUsername(users) {
+    var username = document.getElementById('username-input').value;
+    if(username && !_.find(users, {username: username})){
+      document.querySelector('#username-input+p').innerHTML = '';
+      document.querySelector('#username-input').classList.remove('is-danger');
+      document.querySelector('#username-input').classList.add('is-success');
+      return true
+    } 
+    if (_.find(users, {username: username})){
+      document.querySelector('#username-input+p').innerHTML = 'Such user exists. Choose another username.';
+    }
+    if(!username){
+      document.querySelector('#username-input+p').innerHTML = 'Please provide username';
+    }
+    document.querySelector('#username-input').classList.add('is-danger');
+    document.querySelector('#username-input').classList.remove('is-success');
+    return false;
+  }
+
+  function clearInputs(){
+    document.getElementById('username-input').value = null;
+    document.getElementById('firstname-input').value = null;
+    document.getElementById('lastname-input').value = null;
+    document.getElementById('phone-input').value = null;
+    document.getElementById('address-input').value = null;
+    document.getElementById('zip-input').value = null;
+    document.getElementById('email-input').value = null;
+
+    document.querySelector('#username-input+p').innerHTML = '';
+    document.querySelector('#firstname-input+p').innerHTML = '';
+    document.querySelector('#lastname-input+p').innerHTML = '';
+    document.querySelector('#phone-input+p').innerHTML = '';
+    document.querySelector('#address-input+p').innerHTML = '';
+    document.querySelector('#zip-input+p').innerHTML = '';
+    document.querySelector('#email-input+p').innerHTML = '';
+  }
+
+})()
 
 

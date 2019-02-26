@@ -11,6 +11,7 @@
 
 <body>
   <a class="skip" href="#maincontent">Skip to main content</a> 
+  <a class="skip" href="#contactus">Go to contact us</a> 
   <header class="hero hero-bg is-fullheight">
     <div class="hero-head">
       <div class="navbar">
@@ -1016,7 +1017,7 @@
           </div>
         </section>
       
-        <section class="section has-background-light" aria-label="contuct us">
+        <section id="contactus" class="section has-background-light" aria-label="contuct us">
           <div class="container">
             <div class="section-heading has-text-centered">
               <h2 class="title is-2">Contact us</h2>
@@ -1025,84 +1026,64 @@
       
             <form class="column is-half is-offset-one-quarter box" aria-label="Contact us">
               <div class="field">
-                <label class="label" for="name-input">Name</label>
-                <div class="control">
-                  <input id="name-input" class="input" type="text" placeholder="John Doe" name="name">
-                </div>
+                  <label class="label" for="username-input">Username</label>
+                  <div class="control">
+                    <input id="username-input" required class="input" type="text" name="username" placeholder="johndoe">
+                    <p class="help is-danger" aria-live="polite" tabindex="-1"></p>
+                  </div>
               </div>
-      
               <div class="field">
-                <label class="label" for="username-input">Username</label>
-                <div class="control has-icons-left has-icons-right">
-                  <input id="username-input" class="input is-success" type="text" name="username" placeholder="johndoe">
-                  <span class="icon is-small is-left">
-                    <i  aria-hidden="true" class="fas fa-user"></i>
-                  </span>
-                  <span class="icon is-small is-right">
-                    <i  aria-hidden="true" class="fas fa-check"></i>
-                  </span>
+                <label class="label" for="firstname-input">First name</label>
+                <div class="control">
+                  <input id="firstname-input" required class="input" type="text" placeholder="John" name="firstname">
+                  <p class="help is-danger" aria-live="polite" tabindex="-1"></p>
                 </div>
-                <p class="help is-success">This username is available</p>
               </div>
-      
+              <div class="field">
+                  <label class="label" for="lastname-input">Last name</label>
+                  <div class="control">
+                    <input id="lastname-input" required class="input" type="text" placeholder="Doe" name="lastname">
+                    <p class="help is-danger" aria-live="polite" tabindex="-1"></p>
+                  </div>
+              </div> 
+              <div class="field">
+                  <label class="label" for="birth-input">Date of birth</label>
+                  <div class="control">
+                    <input id="birth-input" required class="input" type="text" placeholder="1992" disabled name="birth">
+                    <p class="help is-danger" aria-live="polite" tabindex="-1"></p>
+                  </div>
+              </div>   
+              <div class="field">
+                  <label class="label" for="phone-input">Phone number</label>
+                  <div class="control">
+                    <input id="phone-input" class="input" required type="text" placeholder="123456789012" name="phonenumber">
+                    <p class="help is-danger" aria-live="polite" tabindex="-1"></p>
+                  </div>
+              </div>
+              <div class="field">
+                  <label class="label" for="address-input">Address</label>
+                  <div class="control">
+                    <input id="address-input" class="input" required type="text" placeholder="Nezavisimosti 177, 804, Minsk, Belarus" name="address">
+                    <p class="help is-danger" aria-live="polite" tabindex="-1"></p>
+                  </div>
+              </div>  
+              <div class="field">
+                  <label class="label" for="zip-input">ZIP</label>
+                  <div class="control">
+                    <input id="zip-input" class="input" type="number" placeholder="220000" name="zip">
+                    <p class="help is-danger" aria-live="polite" tabindex="-1"></p>
+                  </div>
+              </div>          
               <div class="field">
                 <label class="label" for="email-input">Email</label>
-                <div class="control has-icons-left has-icons-right">
-                  <input id="email-input" class="input is-danger" aria-invalid="true" type="email" placeholder="johnDoe@example.com" name="email" value="hello@">
-                  <span class="icon is-small is-left">
-                    <i  aria-hidden="true" class="fas fa-envelope"></i>
-                  </span>
-                  <span class="icon is-small is-right">
-                    <i  aria-hidden="true" class="fas fa-exclamation-triangle"></i>
-                  </span>
-                </div>
-                <p class="help is-danger">This email is invalid</p>
-              </div>
-      
-              <div class="field">
-                <label class="label" for="subject-select"> Subject</label>
                 <div class="control">
-                  <div class="select">
-                    <select id="subject-select" aria-required="true">
-                      <option value="first">first subject</option>
-                      <option value="second">second subject</option>
-                    </select>
-                  </div>
+                  <input id="email-input" class="input is-danger" required aria-invalid="true" type="email" placeholder="johnDoe@example.com" name="email" value="hello@">
+                  <p class="help is-danger" aria-live="polite" tabindex="-1"></p>
                 </div>
-              </div>
-      
-              <div class="field">
-                <label class="label" for="message-textarea">Message</label>
-                <div class="control">
-                  <textarea id="message-textarea" class="textarea" placeholder="some text" name="message"></textarea>
-                </div>
-              </div>
-      
-              <fieldset class="field">
-                <div class="control" role="group" aria-label="terms and conditions">
-                  <label class="checkbox" for="agreement-checkbox">
-                    <input type="checkbox" name="terms and conditions" id="agreement-checkbox">
-                    I agree to the <a href="#">terms and conditions</a>
-                  </label>
-                </div>
-              </fieldset>
-      
-              <fieldset class="field">
-                <div class="control" role="radiogroup" aria-label="alternative">
-                  <label class="radio" for="radio-yes">
-                    <input type="radio" id="radio-yes" name="question" aria-checked="false">
-                    Yes
-                  </label>
-                  <label class="radio" for="radio-no">
-                    <input type="radio" id="radio-no" name="question" aria-checked="false">
-                    No
-                  </label>
-                </div>
-              </fieldset>
-      
+              </div>      
               <div class="field is-grouped">
                 <div class="control">
-                  <button class="button is-link" aria-label="submit">Submit</button>
+                  <button class="button is-link" aria-label="submit" id="submit">Submit</button>
                 </div>
                 <div class="control">
                   <button class="button is-text" aria-label="cancel">Cancel</button>
@@ -1333,6 +1314,8 @@
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.core.js"></script>
   <script async src="js/custom.js"></script>
 </body>
 </html>
