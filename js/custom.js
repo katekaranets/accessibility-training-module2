@@ -263,6 +263,12 @@ function toggleTab(selectedNav, targetId) {
   var isValid = false;
   var persons = [];
   var person = {};
+  var usernameValid = false;
+  var firstnameValid = false;
+  var lastnameValid = false;
+  var addressValid = false;
+  var phoneValid = false;
+  var emailValid = false;
 
   document.getElementById('submit').addEventListener('keyup', function(e){
     if(e.keyCode === 32 || e.keyCode === 13){
@@ -297,60 +303,29 @@ function toggleTab(selectedNav, targetId) {
   });
 
   function validate() {
+    validateUsername();
+    validateFirstname();
+    validateLastname();
+    validateAddress();
+    validatePhone();
+    validateEmail();
+    isValid = usernameValid && firstnameValid && lastnameValid && addressValid && phoneValid && emailValid;
+  }
+
+  document.getElementById('username-input').addEventListener('blur', validateUsername);
+  document.getElementById('firstname-input').addEventListener('blur', validateFirstname);
+  document.getElementById('lastname-input').addEventListener('blur', validateLastname);
+  document.getElementById('address-input').addEventListener('blur', validateAddress);
+  document.getElementById('phone-input').addEventListener('blur', validatePhone);
+  document.getElementById('email-input').addEventListener('blur', validateEmail);
+
+  function validateUsername() {
     var users = JSON.parse(window.localStorage.getItem('users'));
-
-    if(validateUsername(users) && phoneValidation() && validateEmail() ){
-      isValid = true;
-    }
-  }
-
-  function phoneValidation(){
-    var phone = document.getElementById('phone-input').value;
-    if(phone && !isNaN(phone)){
-      document.querySelector('#phone-input+p').innerHTML = '';
-      document.querySelector('#phone-input').classList.remove('is-danger');
-      document.querySelector('#phone-input').classList.add('is-success');
-      return true;
-    }
-    if (!phone){
-      document.querySelector('#phone-input+p').innerHTML = 'Please provide phone number.';
-    } else {
-      document.querySelector('#phone-input+p').innerHTML = 'Phone number is incorrect.';
-    }
-    document.querySelector('#phone-input').classList.add('is-danger');
-    document.querySelector('#phone-input').classList.remove('is-success');
-    return false;
-  }
-
-  function validateEmail() {
-    var email = document.getElementById('email-input').value;
-    if(email && checkEmail(email)){
-      document.querySelector('#email-input+p').innerHTML = '';
-      document.querySelector('#email-input').classList.remove('is-danger');
-      document.querySelector('#email-input').classList.add('is-success');
-      return true
-    }
-    if (!email){
-      document.querySelector('#email-input+p').innerHTML = 'Please provide email.';
-    } else {
-      document.querySelector('#email-input+p').innerHTML = 'Email is incorrect.';
-    }
-    document.querySelector('#email-input').classList.add('is-danger');
-    document.querySelector('#email-input').classList.remove('is-success');
-    return false;
-  }
-
-  function checkEmail(email) {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-}
-
-  function validateUsername(users) {
     var username = document.getElementById('username-input').value;
     if(username && !_.find(users, {username: username})){
       document.querySelector('#username-input+p').innerHTML = '';
-      document.querySelector('#username-input').classList.remove('is-danger');
-      document.querySelector('#username-input').classList.add('is-success');
+      makeValidStyles('username');
+      usernameValid = true;
       return true
     } 
     if (_.find(users, {username: username})){
@@ -359,9 +334,97 @@ function toggleTab(selectedNav, targetId) {
     if(!username){
       document.querySelector('#username-input+p').innerHTML = 'Please provide username';
     }
-    document.querySelector('#username-input').classList.add('is-danger');
-    document.querySelector('#username-input').classList.remove('is-success');
+    usernameValid = false;
+    makeInvalidStyles('username');
     return false;
+  }
+
+  function validateFirstname() {
+    var firstname = document.getElementById('firstname-input').value;
+    if(firstname) {
+      document.querySelector('#firstname-input+p').innerHTML = '';
+      makeValidStyles('firstname');
+      firstnameValid = true;
+      return true;
+    }
+    firstnameValid = false;
+    document.querySelector('#firstname-input+p').innerHTML = 'Please provide firstname.';
+    makeInvalidStyles('firstname');
+    return false;
+  }
+
+  function validateLastname() {
+    var lastname = document.getElementById('lastname-input').value;
+    if(lastname) {
+      document.querySelector('#lastname-input+p').innerHTML = '';
+      makeValidStyles('lastname');
+      lastnameValid = true;
+      return true;
+    }
+    lastnameValid = false;
+    document.querySelector('#lastname-input+p').innerHTML = 'Please provide lastname.';
+    makeInvalidStyles('lastname');
+    return false;
+  }
+
+  function validateAddress() {
+    var address = document.getElementById('address-input').value;
+    if(address) {
+      document.querySelector('#address-input+p').innerHTML = '';
+      makeValidStyles('address');
+      addressValid = true;
+      return true;
+    }
+    addressValid = false;
+    document.querySelector('#address-input+p').innerHTML = 'Please provide address.';
+    makeInvalidStyles('address');
+    return false;
+  }
+
+  function validatePhone(){
+    var phone = document.getElementById('phone-input').value;
+    if(phone && !isNaN(phone)){
+      document.querySelector('#phone-input+p').innerHTML = '';
+      makeValidStyles('phone');
+      phoneValid = true;
+      return true;
+    }
+    if (!phone){
+      document.querySelector('#phone-input+p').innerHTML = 'Please provide phone number.';
+    } else {
+      document.querySelector('#phone-input+p').innerHTML = 'Phone number is incorrect.';
+    }
+    phoneValid = false;
+    makeInvalidStyles('phone');
+    return false;
+  }
+
+  function validateEmail() {
+    var email = document.getElementById('email-input').value;
+    if(email && checkEmail(email)){
+      document.querySelector('#email-input+p').innerHTML = '';
+      makeValidStyles('email');
+      emailValid = true;
+      return true
+    }
+    if (!email){
+      document.querySelector('#email-input+p').innerHTML = 'Please provide email.';
+    } else {
+      document.querySelector('#email-input+p').innerHTML = 'Email is incorrect.';
+    }
+    emailValid = false;
+    makeInvalidStyles('email');
+    return false;
+  }
+
+  function makeValidStyles(field) {
+    document.querySelector('#'+field+'-input').classList.remove('is-danger');
+    document.querySelector('#'+field+'-input').classList.add('is-success');
+  }
+
+  function makeInvalidStyles(field) {
+    document.querySelector('#'+field+'-input').classList.add('is-danger');
+    document.querySelector('#'+field+'-input').classList.remove('is-success');
   }
 
   function clearInputs(){
@@ -380,6 +443,11 @@ function toggleTab(selectedNav, targetId) {
     document.querySelector('#address-input+p').innerHTML = '';
     document.querySelector('#zip-input+p').innerHTML = '';
     document.querySelector('#email-input+p').innerHTML = '';
+  }
+
+  function checkEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
   }
 
 })()
